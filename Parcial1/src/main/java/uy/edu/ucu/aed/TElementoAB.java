@@ -362,32 +362,3 @@ class TreeNode {
         this.left = this.right = null;
     }
 }
-
-class BinaryTree {
-    TreeNode root;
-
-    public BinaryTree() {
-        root = null;
-    }
-
-    // Función para calcular la longitud de trayectoria interna (LTI) de un árbol
-    public int calculateLTI(TreeNode node, int level) {
-        if (node == null)
-            return 0;
-        return level + calculateLTI(node.left, level + 1) + calculateLTI(node.right, level + 1);
-    }
-
-    // Función para calcular la longitud de trayectoria interna media (LTIM) de un
-    // árbol
-    public double calculateLTIM(TreeNode node, int size) {
-        int lti = calculateLTI(node, 0);
-        return (double) lti / size;
-    }
-
-    // Función para obtener el tamaño de un árbol
-    public int getSize(TreeNode node) {
-        if (node == null)
-            return 0;
-        return 1 + getSize(node.left) + getSize(node.right);
-    }
-}
